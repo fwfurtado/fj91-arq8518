@@ -1,10 +1,14 @@
 application:
   topics:
-    garage: "garages"
+    garage: garages
+    booking: bookings
+    calendar: calendars
 
 spring:
   application:
     name: calendar
+  jackson:
+    date-format=yyyy-MM-dd HH:mm:ss
   datasource:
     url: jdbc:mysql://localhost/calendar_dev?createDatabaseIfNotExist=true&userSSL=false
     username: root
@@ -12,5 +16,21 @@ spring:
     hibernate:
       ddl-auto: update
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
       group-id: calendar
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+

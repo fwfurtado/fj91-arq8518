@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  zookeeper:
+    image: zookeeper
+    ports:
+      - "2181:2181"
+    healthcheck:
+      test: ["CMD", "echo ruok | nc localhost 2181"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+  kafka:
+    image: kafka
+    environment:
+      - ZOOKEEPER_SERVERS=zookeeper:2181/kafka
+      - ADVERTISE_HOST=fwfurtado-host.local
+      - BROKER_ID=1
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper

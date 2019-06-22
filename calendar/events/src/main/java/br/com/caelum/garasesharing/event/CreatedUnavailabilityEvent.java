@@ -1,6 +1,7 @@
 package br.com.caelum.garasesharing.event;
 
 import java.time.LocalDateTime;
+import java.util.StringJoiner;
 
 public class CreatedUnavailabilityEvent extends Event {
 
@@ -37,5 +38,15 @@ public class CreatedUnavailabilityEvent extends Event {
 
     public String getGarageId() {
         return garageId;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", CreatedUnavailabilityEvent.class.getSimpleName() + "[", "]")
+            .add("id=" + id)
+            .add("start=" + start)
+            .add("end=" + end)
+            .add("garageId='" + garageId + "'")
+            .toString();
     }
 }

@@ -1,6 +1,7 @@
 package br.com.caelum.garasesharing.event;
 
 import java.time.LocalDateTime;
+import java.util.StringJoiner;
 
 public class DeletedUnavailabilityEvent extends Event {
     private String garageId;
@@ -30,5 +31,14 @@ public class DeletedUnavailabilityEvent extends Event {
 
     public LocalDateTime getEnd() {
         return end;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", DeletedUnavailabilityEvent.class.getSimpleName() + "[", "]")
+            .add("garageId='" + garageId + "'")
+            .add("start=" + start)
+            .add("end=" + end)
+            .toString();
     }
 }
