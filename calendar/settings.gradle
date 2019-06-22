@@ -6,4 +6,5 @@ pluginManagement {
 rootProject.name = 'calendar'
 include 'infrastructure'
 include 'application'
+include 'events'
 
