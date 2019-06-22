@@ -3,6 +3,8 @@ package br.com.caelum.garagesharing.calendar.shared.domain;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,9 @@ public class Unavailability {
     @NotNull
     private String reason;
 
+    @Enumerated(EnumType.STRING)
+    private UnavailabilityType type;
+
     /**
      * @deprecated frameworks only
      */
@@ -36,10 +41,12 @@ public class Unavailability {
     private Unavailability() {
     }
 
-    public Unavailability(LocalDateTime start, LocalDateTime end, String reason) {
+    public Unavailability(LocalDateTime start, LocalDateTime end, UnavailabilityType type, String reason) {
         this.start = start;
         this.end = end;
+        this.type = type;
         this.reason = reason;
+
     }
 
     public Long getId() {
@@ -68,5 +75,9 @@ public class Unavailability {
 
     public void setGarage(Garage garage) {
         this.garage = garage;
+    }
+
+    public UnavailabilityType getType() {
+        return type;
     }
 }

@@ -28,7 +28,7 @@ public class RegisterService {
     }
 
     YearMonth createUnavailabilityBy(UnavailabilityForm form) {
-        Long garageId = form.getGarageId();
+        String garageId = form.getGarageId();
 
         Garage garage = garages.findById(garageId)
             .orElseThrow(() -> new GarageNotFoundException(garageId));

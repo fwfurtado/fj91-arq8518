@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 class UnavailabilityForm {
 
     @JsonIgnore
-    private Long garageId;
+    private String garageId;
 
     @NotNull
     @FutureOrPresent
@@ -31,14 +31,14 @@ class UnavailabilityForm {
     private UnavailabilityForm() {
     }
 
-    public UnavailabilityForm(Long garageId, LocalDateTime start, LocalDateTime end, String reason) {
+    public UnavailabilityForm(String garageId, LocalDateTime start, LocalDateTime end, String reason) {
         this.garageId = garageId;
         this.start = start;
         this.end = end;
         this.reason = reason;
     }
 
-    public Long getGarageId() {
+    public String getGarageId() {
         return garageId;
     }
 
@@ -50,7 +50,7 @@ class UnavailabilityForm {
         return end;
     }
 
-    void setGarageId(Long garageId) {
+    void setGarageId(String garageId) {
         this.garageId = garageId;
     }
 

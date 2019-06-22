@@ -1,9 +1,9 @@
 package br.com.caelum.garagesharing.calendar.listeners.garage;
 
 public class CreatedGarage {
-    private Long id;
+    private String id;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class Garage {
     @Id
-    private Long id;
+    private String id;
 
     /**
      * @deprecated frameworks only
@@ -15,11 +15,11 @@ public class Garage {
     private Garage() {
     }
 
-    public Garage(Long id) {
+    public Garage(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 }

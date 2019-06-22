@@ -24,7 +24,7 @@ class RegisterController {
     }
 
     @PostMapping("garages/{garageId}")
-    ResponseEntity<?> createBy(@PathVariable Long garageId, @Valid @RequestBody UnavailabilityForm form, UriComponentsBuilder uriBuilder) {
+    ResponseEntity<?> createBy(@PathVariable String garageId, @Valid @RequestBody UnavailabilityForm form, UriComponentsBuilder uriBuilder) {
 
         form.setGarageId(garageId);
 

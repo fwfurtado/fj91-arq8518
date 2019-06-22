@@ -7,7 +7,7 @@ public class CreatedUnavailabilityEvent extends Event {
     private Long id;
     private LocalDateTime start;
     private LocalDateTime end;
-    private Long garageId;
+    private String garageId;
 
     /**
      * @deprecated frameworks only
@@ -16,7 +16,7 @@ public class CreatedUnavailabilityEvent extends Event {
     private CreatedUnavailabilityEvent() {
     }
 
-    public CreatedUnavailabilityEvent(Long id, LocalDateTime start, LocalDateTime end, Long garageId) {
+    public CreatedUnavailabilityEvent(Long id, LocalDateTime start, LocalDateTime end, String garageId) {
         this.id = id;
         this.start = start;
         this.end = end;
@@ -35,7 +35,7 @@ public class CreatedUnavailabilityEvent extends Event {
         return end;
     }
 
-    public Long getGarageId() {
+    public String getGarageId() {
         return garageId;
     }
 }

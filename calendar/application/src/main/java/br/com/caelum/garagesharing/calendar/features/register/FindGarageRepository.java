@@ -4,5 +4,5 @@ import br.com.caelum.garagesharing.calendar.shared.domain.Garage;
 import java.util.Optional;
 
 public interface FindGarageRepository {
-    Optional<Garage> findById(Long id);
+    Optional<Garage> findById(String id);
 }
