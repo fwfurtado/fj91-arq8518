@@ -1,1 +1,16 @@
+application:
+  topics:
+    garage: "garages"
 
+spring:
+  application:
+    name: calendar
+  datasource:
+    url: jdbc:mysql://localhost/calendar_dev?createDatabaseIfNotExist=true&userSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    consumer:
+      group-id: calendar
