@@ -9,7 +9,7 @@ public class KafkaPublisher<K,V> {
     private final KafkaTemplate<K, V> template;
     private final String topic;
 
-    <E extends Enum<E> & TopicNameable> KafkaPublisher(KafkaTemplate<K,V> template, E topic) {
+    <E extends Enum<E> & NameableTopic> KafkaPublisher(KafkaTemplate<K,V> template, E topic) {
         this.template = template;
         this.topic = topic.getTopicName();
     }

@@ -2,8 +2,6 @@ package br.com.caelum.garagesharing.kafka;
 
 import java.util.Map;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Producer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,7 +15,7 @@ public class KafkaPublisherFactory {
         this.producerProperties = properties.buildProducerProperties();
     }
 
-    public <K,V, E extends Enum<E> & TopicNameable> KafkaPublisher<K,V> factory(E topic) {
+    public <K,V, E extends Enum<E> & NameableTopic> KafkaPublisher<K,V> factory(E topic) {
 
         DefaultKafkaProducerFactory<K, V> producerFactory = new DefaultKafkaProducerFactory<>(producerProperties);
 

@@ -1,6 +1,6 @@
 package br.com.caelum.garagesharing.kafka;
 
-public interface TopicNameable {
+public interface NameableTopic {
 
     String name();
 }
