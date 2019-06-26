@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/payment_dev?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update

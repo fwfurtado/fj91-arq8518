@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+rootProject.name = 'payment'
+
+include 'shared'
+include 'application'
+include 'adapters:web'
+include 'adapters:persistence'
+include 'runner'

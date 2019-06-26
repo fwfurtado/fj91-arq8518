@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(":shared")
+    implementation project(":application")
+    implementation project(":adapters:persistence")
+    implementation project(":adapters:web")
+}
