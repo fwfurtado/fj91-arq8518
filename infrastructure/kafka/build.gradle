@@ -1,0 +1,43 @@
+
+subprojects {
+
+    def currentSubProject = project
+
+    version = '1.0.0.RELEASE'
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        archiveClassifier = 'javadoc'
+        from 'build/docs/javadoc'
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allSource
+        archiveClassifier = 'sources'
+    }
+
+    artifacts {
+        archives jar
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+
+                artifact sourcesJar
+                artifact javadocJar
+
+                artifactId = "infra-kafka-${currentSubProject.name}"
+
+                version = currentSubProject.version
+
+            }
+        }
+    }
+}
+
+jar {
+    enabled = false
+}

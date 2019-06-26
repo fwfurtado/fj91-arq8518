@@ -1,6 +1,6 @@
 package br.com.caelum.garagesharing.calendar.listeners.calendar;
 
-import br.com.caelum.garagesharing.kafka.KafkaPublisher;
+import br.com.caelum.garagesharing.infra.kafka.core.KafkaPublisher;
 import br.com.caelum.garasesharing.event.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

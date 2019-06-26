@@ -4,32 +4,40 @@ buildscript {
     }
 
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
 }
 
 group = 'br.com.caelum.garagesharing'
 version = '0.0.1-SNAPSHOT'
 
-repositories {
-//    mavenLocal()
-    mavenCentral()
-}
 
 subprojects {
-
     apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
     apply plugin: 'io.spring.dependency-management'
 
     group = rootProject.group
-    version = rootProject.version
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
 
     repositories {
         mavenLocal()
@@ -37,11 +45,7 @@ subprojects {
     }
 
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        implementation 'org.springframework.kafka:spring-kafka'
-        runtimeOnly 'mysql:mysql-connector-java'
+        implementation 'org.springframework.boot:spring-boot-starter'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 
@@ -51,6 +55,9 @@ subprojects {
         }
     }
 }
+
+
+
 
 
 

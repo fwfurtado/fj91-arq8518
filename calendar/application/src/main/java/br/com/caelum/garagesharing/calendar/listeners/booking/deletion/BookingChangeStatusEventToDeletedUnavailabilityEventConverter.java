@@ -1,6 +1,5 @@
 package br.com.caelum.garagesharing.calendar.listeners.booking.deletion;
 
-import br.com.caelum.garagesharing.calendar.listeners.booking.BookingChangeStatusEvent;
 import br.com.caelum.garagesharing.calendar.shared.domain.Garage;
 import br.com.caelum.garagesharing.calendar.shared.domain.Unavailability;
 import br.com.caelum.garasesharing.event.DeletedUnavailabilityEvent;

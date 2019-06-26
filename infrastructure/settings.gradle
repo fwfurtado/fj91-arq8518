@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+include 'kafka:core'
+include 'kafka:spring-boot-auto-configuration'
+include 'kafka:spring-boot-starter'
+
