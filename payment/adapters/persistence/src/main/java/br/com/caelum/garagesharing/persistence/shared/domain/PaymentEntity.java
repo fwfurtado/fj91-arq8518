@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "paymets")
+@Table(name = "payments")
 public class PaymentEntity {
 
     @Id
