@@ -1,7 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    implementation 'br.com.caelum.garagesharing:infra-kafka-spring-boot-starter:1.0.0.RELEASE'
+    implementation 'br.com.caelum.garagesharing:infra-kafka-spring-boot-starter:1.1.2.RELEASE'
     implementation project(":infrastructure")
     implementation project(":events")
 }

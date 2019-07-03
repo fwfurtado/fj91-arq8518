@@ -2,8 +2,9 @@
 subprojects {
 
     def currentSubProject = project
+    def isRelease = project.hasProperty("release")
 
-    version = '1.0.0.RELEASE'
+    version = '2.1.2.SNAPSHOT'
 
     task javadocJar(type: Jar, dependsOn: javadoc) {
         archiveClassifier = 'javadoc'
@@ -33,6 +34,20 @@ subprojects {
 
                 version = currentSubProject.version
 
+            }
+        }
+
+        repositories {
+            maven {
+                def releaseRepositoryURL = 'http://localhost:8081/nexus/content/repositories/releases/'
+                def snapshotRepositoryURL = 'http://localhost:8081/nexus/content/repositories/snapshots/'
+
+                url = isRelease ? releaseRepositoryURL : snapshotRepositoryURL
+
+                credentials {
+                    username 'admin'
+                    password 'admin123'
+                }
             }
         }
     }

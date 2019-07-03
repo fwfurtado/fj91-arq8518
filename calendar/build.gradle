@@ -5,6 +5,7 @@ buildscript {
 
     repositories {
         mavenCentral()
+        maven { url "http://localhost:8081/nexus/content/groups/public" }
     }
 
     dependencies {
@@ -15,9 +16,11 @@ buildscript {
 group = 'br.com.caelum.garagesharing'
 version = '0.0.1-SNAPSHOT'
 
-repositories {
-//    mavenLocal()
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url "http://localhost:8081/nexus/content/groups/public" }
+    }
 }
 
 subprojects {
@@ -31,10 +34,6 @@ subprojects {
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'

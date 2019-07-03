@@ -53,7 +53,7 @@ class RegisterController {
             this.amount = amount;
         }
 
-        public BigDecimal getAmount() {
+        BigDecimal getAmount() {
             return amount;
         }
     }
